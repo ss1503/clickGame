@@ -12,13 +12,14 @@ public class MainActivity2 extends AppCompatActivity {
     TextView p1ResultTxt, p2ResultTxt, winnerTxt;
 
     int p1Points, p2Points;
+    Intent gi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        Intent gi = getIntent();
+        gi = getIntent();
 
         p1ResultTxt = (TextView) findViewById(R.id.p1ResultTxt);
         p2ResultTxt = (TextView) findViewById(R.id.p2ResultTxt);
@@ -49,6 +50,10 @@ public class MainActivity2 extends AppCompatActivity {
 
     public void back(View view)
     {
+        gi.putExtra("click", 0);
+        gi.putExtra("hold", 0);
+
+        setResult(RESULT_OK, gi);
         finish();
     }
 }
